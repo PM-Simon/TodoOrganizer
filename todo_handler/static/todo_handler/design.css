@@ -1,0 +1,25 @@
+.btn-mobile {
+    display: inline-block;
+}
+
+.btn-no-mobile {
+    display:none;
+}
+
+.todoItem {
+  max-width: 150px;
+}
+
+@media (min-width: 576px) {
+    .btn-mobile {
+        display: none;
+    }
+
+    .btn-no-mobile {
+        display: inline-block;
+    }
+    .todoItem {
+      max-width: 240px;
+    }
+
+}

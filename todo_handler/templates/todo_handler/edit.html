@@ -1,0 +1,7 @@
+{% extends 'todo_handler/layout_forms.html' %}
+{% block title %}
+    TODO - Bearbeiten
+{% endblock %}
+{% block formtype %}
+    {% url 'edit' todo.pk %}
+{% endblock %}

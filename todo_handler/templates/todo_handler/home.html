@@ -1,0 +1,31 @@
+{% extends 'todo_handler/layout.html' %} {% block title %} TODO - Home {% endblock %} {% block content %}
+<main class="container">
+    <div class="d-flex flex-wrap">
+        {% for todo in todos %}
+        <div class="todoItem p-2" style="height: 100%">
+            <h4>{{ todo.title }}</h4>
+            <div class="my-2">{{ todo.deadline }}</div>
+            <div class="my-2">
+                <div class="my-2">{{ todo.description }}</div>
+                <div class="progress">
+                    <div class="progress-bar {{ todo.get_color }}" role="progressbar" style="width: {{ todo.progress }}%" aria-valuenow="{{ todo.progress }}" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="my-2">
+                <div class="btn-group">
+                    <a class="btn btn-primary" href="{% url 'edit' todo.pk %}">
+                        <span class="oi oi-pencil"></span>
+                        <span class="btn-no-mobile"> Bearbeiten</span>
+                    </a>
+                    <a class="btn btn-danger" href="{% url 'removetodo' todo.pk %}">
+                        <span class="oi oi-trash"></span>
+                        <span class="btn-no-mobile"> L&ouml;schen</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
